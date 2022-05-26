@@ -34,6 +34,12 @@ explore: order_items {
     sql_on: ${orders.customer_id} = ${customers.customer_id} ;;
     relationship: many_to_one
   }
+
+  join: order_payment {
+    type: left_outer
+    sql_on: ${orders.order_id} = ${order_payment.order_id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: sellers {}
